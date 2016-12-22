@@ -1,0 +1,50 @@
+# If want to input None, use !!null
+# Resume Training, start from scratch or resume training
+resume_train: True
+load_epoch: 4
+batch_size: 256
+# Learning Parameters
+n_epochs:  80
+#learning_rate: 0.035  #def:0.01
+#learning_rate: 0.04  #def:0.01
+learning_rate: 0.01  #def:0.01
+lr_policy: step  # def: step or auto
+lr_adapt_threshold: 0.5
+lr_step: [15,25,35,50]  # def: 20, learning rate will be reduced by 10 times at these steps
+
+# Data
+use_data_layer: False
+rand_crop: True # def: True
+shuffle: False # def: False, if shuffle the batches
+para_load: False 
+#para_load: True
+batch_crop_mirror: False  # if False, do randomly on each image separately
+
+# Momentum
+use_momentum: True # def: True
+use_nesterov_momentum: False # def: False
+#use_nesterov_momentum: True # def: False
+momentum: 0.9 # def: 0.9
+
+# Weight Decay
+weight_decay: 0.0005 # def: 0.0005
+#weight_decay: 0.001 # def: 0.0005
+
+# Directories
+#label_folder: /data/tmp/ciyong/Image100/labels/
+#mean_file: /data/tmp/ciyong/Image100/misc/img_mean.npy
+label_folder: /data/user/xiaotian/Image1000/labels/
+mean_file: /data/user/xiaotian/Image1000/misc/img_mean.npy
+
+train_lmdb_path: /data/user/xiaotian/imagenet5/lmdb/ilsvrc12_train_lmdb/
+val_lmdb_path: /data/user/xiaotian/imagenet5/lmdb/ilsvrc12_val_lmdb/
+image_mean_path: /data/user/xiaotian/imagenet5/lmdb/ilsvrc_2012_mean.npy
+
+load_weights_dir: /data/user/xiaotian/new_weight1  # directory for saving weights and results
+weights_dir: /data/user/xiaotian/new_weight1/  # directory for saving weights and results
+
+snapshot_freq: 1  # frequency of saving weights
+print_train_error: True
+print_freq: 20  # frequency of printing training error rate
+
+flag_top_5: True
